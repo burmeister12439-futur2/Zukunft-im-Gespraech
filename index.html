@@ -202,6 +202,9 @@
   .news form{display:flex;gap:12px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center}
   .news input{flex:1;min-width:220px;font-family:'Space Mono',monospace;font-size:13px;padding:14px 16px;border:2px solid var(--ground);background:transparent;color:var(--ground)}
   .news button{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ground);color:var(--paper);border:none;padding:14px 24px;cursor:pointer}
+  .news .nl-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+  .news .nl-links a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ground);color:var(--paper);text-decoration:none;padding:14px 24px;display:inline-block}
+  .news .nl-links a:hover{background:var(--primary)}
   .news .hint{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#6b6b6b;margin-top:14px}
 
   footer{background:var(--ground);color:var(--paper);margin-top:44px}
@@ -440,12 +443,12 @@
 <!-- Newsletter -->
 <section class="news" id="newsletter">
   <span class="mono-k">Newsletter</span>
-  <p>Die Termine der Reihe stehen im <em>Salon-Geflüster</em>, dem Newsletter des Industriesalon Schöneweide. Dort steht auch alles andere, was im Salon passiert.</p>
-  <form onsubmit="return nlSubmit(event)">
-    <input type="email" required placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse für das Salon-Geflüster">
-    <button type="submit">Anmelden</button>
-  </form>
-  <div class="hint">Anmeldung per E-Mail · Bestätigung im Double-Opt-in · jederzeit abbestellbar</div>
+  <p>„Zukunft im Gespräch“ hat keinen eigenen Newsletter. Die Reihe steht in den Newslettern der beiden Häuser, die sie tragen. Hier finden Sie immer alles zur Reihe.</p>
+  <div class="nl-links">
+    <a href="https://www.industriesalon.de/#header-newsletter-signup" target="_blank" rel="noopener">Industriesalon Schöneweide</a>
+    <a href="https://werk116.de/newsletter" target="_blank" rel="noopener">WERK 116</a>
+  </div>
+  <div class="hint">Anmeldung bei den Häusern selbst · jederzeit abbestellbar</div>
 </section>
 
 <!-- Impressum -->
@@ -487,7 +490,7 @@
   <h3>Fragen-Wand</h3>
   <p>Antworten, die Sie eingeben, sind für die Veröffentlichung an der „Fragen-Wand" gedacht. Bitte geben Sie keine personenbezogenen Daten Dritter ein. Die Eingabe wird nicht auf dieser Seite gespeichert. Beim Absenden öffnet sich Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht an info@industriesalon.de; sie geht erst ab, wenn Sie sie dort selbst senden. Eine Auswahl der Antworten wird redaktionell gekürzt und ohne Klarnamen gezeigt.</p>
   <h3>Newsletter</h3>
-  <p>Für das Salon-Geflüster, den Newsletter des Industriesalon Schöneweide, verarbeiten wir Ihre E-Mail-Adresse auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 a DSGVO). Die Anmeldung erfolgt per E-Mail an info@industriesalon.de und wird dort bestätigt. Sie können sich jederzeit formlos an dieselbe Adresse abmelden.</p>
+  <p>Diese Seite betreibt keinen eigenen Newsletter und erhebt dafür keine Daten. Die beiden Verweise im Abschnitt Newsletter führen zu den Anmeldeseiten des Industriesalon Schöneweide und der Buchhandlung WERK 116. Für die dortige Verarbeitung gelten deren eigene Datenschutzhinweise.</p>
   <h3>Kontakt per E-Mail</h3>
   <p>Wenn Sie uns schreiben, verarbeiten wir Ihre Angaben zur Bearbeitung der Anfrage.</p>
   <h3>Ihre Rechte</h3>
@@ -531,14 +534,6 @@
     window.location.href = "mailto:info@industriesalon.de?subject=Antwort%20f%C3%BCr%20die%20Fragen-Wand&body=" +
       encodeURIComponent("Meine Antwort für die Fragen-Wand:\n\n" + antwort + "\n\n(Bitte ohne meinen Namen zeigen.)");
   });
-  function nlSubmit(e){
-    e.preventDefault();
-    const mail = e.target.querySelector("input").value.trim();
-    // Anmeldung per vorausgefüllter Mail an das Vereinspostfach. Bestätigung und Austragung laufen dort.
-    window.location.href = "mailto:info@industriesalon.de?subject=Salon-Gefl%C3%BCster%20Anmeldung&body=" +
-      encodeURIComponent("Bitte nehmt mich in das Salon-Geflüster auf. Meine Adresse: " + mail);
-    return false;
-  }
 </script>
 </body>
 </html>
